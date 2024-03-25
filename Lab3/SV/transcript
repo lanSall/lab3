@@ -1,14 +1,19 @@
-# do run.do
+# do fsm.do
 # Model Technology ModelSim SE-64 vlog 2021.3 Compiler 2021.07 Jul 13 2021
-# Start time: 12:57:29 on Mar 11,2024
-# vlog clk_div.sv tb.sv 
-# -- Compiling module clk_div
-# ** Error: (vlog-13069) clk_div.sv(22): near "endmodule": syntax error, unexpected endmodule.
-# -- Compiling module tb
-# End time: 12:57:30 on Mar 11,2024, Elapsed time: 0:00:01
-# Errors: 1, Warnings: 0
+# Start time: 10:16:08 on Mar 25,2024
+# vlog fsm.sv fsm_tb.sv 
+# -- Compiling module FSM
+# ** Error: (vlog-13069) fsm.sv(12): near "{": syntax error, unexpected '{', expecting IDENTIFIER or TYPE_IDENTIFIER or NETTYPE_IDENTIFIER or '='.
+# ** Error: fsm.sv(46): (vlog-2730) Undefined variable: 'S0'.
+# ** Error: fsm.sv(53): (vlog-2730) Undefined variable: 'Right0'.
+# ** Error (suppressible): fsm.sv(57): (vlog-2720) A generate begin/end pair has been found outside of generate construct.
+# ** Error: (vlog-13069) fsm.sv(57): near "<=": syntax error, unexpected <=.
+# ** Error: fsm.sv(57): (vlog-13205) Syntax error found in the scope following 'y'. Is there a missing '::'?
+# -- Compiling module stimulus
+# End time: 10:16:08 on Mar 25,2024, Elapsed time: 0:00:00
+# Errors: 6, Warnings: 0
 # ** Error: C:/modeltech64_2021.3/win64/vlog failed.
-# Error in macro ./run.do line 30
+# Error in macro ./fsm.do line 30
 # C:/modeltech64_2021.3/win64/vlog failed.
 #     while executing
-# "vlog clk_div.sv tb.sv"
+# "vlog fsm.sv fsm_tb.sv"

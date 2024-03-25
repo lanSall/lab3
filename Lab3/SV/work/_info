@@ -7,28 +7,4 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dC:/Users/cs212/Downloads/lab3/Lab3/SV
-vclk_div
-DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
-!s110 1710179850
-!i10b 1
-!s100 `JRJIPio>2zAaNOMPjME61
-Id@>3h@j:dj1Gn[AXzS>;J2
-S1
-R0
-w1710179503
-8clk_div.sv
-Fclk_div.sv
-!i122 0
-L0 1 14
-VDg1SIo80bB@j0V0VzS_@n1
-OL;L;2021.3;73
-r1
-!s85 0
-31
-!s108 1710179849.000000
-!s107 tb.sv|clk_div.sv|
-!s90 clk_div.sv|tb.sv|
-!i113 0
-o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-tCvgOpt 0
+dC:/Users/cs212/Downloads/lab3/Lab3/SV

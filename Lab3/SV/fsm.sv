@@ -1,59 +1,72 @@
-module FSM (clk, reset, a, y);
+module FSM (clk, reset, L, y);
 
    input logic  clk;
    input logic  reset;
    input logic 	L;
-   input logic R;
+  
    
    output logic y;
 
-   typedef enum 	logic [1:0] {S0, S1, S2}, [1:0] {R1,R2,R3} statetype;
+   typedef enum logic [1:0] {left0, left1, left2}  logic [1:0] {Right0,Right1,Right2} statetype;
+   
+
    statetype state, nextstate;
+   
    
    // state register
    always_ff @(posedge clk, posedge reset)
-     if (reset) state <= S0;
+     if (reset) state <= left0;
      else       state <= nextstate;
    
    // next state logic
    always_comb
      case (state)
-       S0: begin
+       left0: begin
 	  y <= 1'b0;	  
-	  if (L) nextstate <= S0;
-	  else   nextstate <= S1;
+	  if (L) nextstate <= left0;
+	  else   nextstate <= left1;
        end
 
-       S1: begin
+       left1: begin
 	  y <= 1'b0;	  	  
-	  if (L) nextstate <= S2;
-	  else   nextstate <= S1;
+	  if (L) nextstate <= left2;
+	  else   nextstate <= left1;
        end
 
-       S2: begin
+       left2: begin
 	  y <= 1'b1;	  	  
-	  if (L) nextstate <= S2;
-	  else   nextstate <= S0;
+	  if (L) nextstate <= left2;
+	  else   nextstate <= left0;
        end
+
+         default: begin
+	  y <= 1'b0;	  	  
+	  nextstate <= S0;
+       end
+     endcase
 
 //------------------------------
 
-    R1: begin
+    always_ff @(posedge clk, posedge reset)
+     if (reset) state <= Right0;
+     else       state <= nextstate;
+
+    Right1: begin
 	  y <= 3'b00;	  
-	  if (R) nextstate <= R0;
-	  else   nextstate <= R1;
+	  if (L) nextstate <= Right0;
+	  else   nextstate <= Right1;
        end
 
-       R2: begin
+       Right2: begin
 	  y <= 1'b001;	  	  
-	  if (R) nextstate <= R2;
-	  else   nextstate <= R1;
+	  if (L) nextstate <= Right2;
+	  else   nextstate <= Right1;
        end
 
-       R3: begin
+       Right3: begin
 	  y <= 1'b0;	  	  
-	  if (R) nextstate <= R2;
-	  else   nextstate <= R0;
+	  if (L) nextstate <= Right2;
+	  else   nextstate <= Right0;
        end
 
 
