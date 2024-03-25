@@ -1,17 +1,23 @@
 # do fsm.do
 # Model Technology ModelSim SE-64 vlog 2021.3 Compiler 2021.07 Jul 13 2021
-# Start time: 10:16:08 on Mar 25,2024
+# Start time: 11:27:43 on Mar 25,2024
 # vlog fsm.sv fsm_tb.sv 
 # -- Compiling module FSM
-# ** Error: (vlog-13069) fsm.sv(12): near "{": syntax error, unexpected '{', expecting IDENTIFIER or TYPE_IDENTIFIER or NETTYPE_IDENTIFIER or '='.
-# ** Error: fsm.sv(46): (vlog-2730) Undefined variable: 'S0'.
-# ** Error: fsm.sv(53): (vlog-2730) Undefined variable: 'Right0'.
-# ** Error (suppressible): fsm.sv(57): (vlog-2720) A generate begin/end pair has been found outside of generate construct.
-# ** Error: (vlog-13069) fsm.sv(57): near "<=": syntax error, unexpected <=.
-# ** Error: fsm.sv(57): (vlog-13205) Syntax error found in the scope following 'y'. Is there a missing '::'?
+# ** Error: fsm.sv(10): (vlog-13003) Enum member 'Right1' has value that is outside the representable range of the enum.
+# ** Error (suppressible): fsm.sv(54): (vlog-7033) Variable 'y' driven in a combinational block, may not be driven by any other process. See fsm.sv(24).
+# ** Error (suppressible): fsm.sv(55): (vlog-7033) Variable 'nextstate' driven in a combinational block, may not be driven by any other process. See fsm.sv(25).
+# ** Error (suppressible): fsm.sv(56): (vlog-7033) Variable 'nextstate' driven in a combinational block, may not be driven by any other process. See fsm.sv(25).
+# ** Error (suppressible): fsm.sv(60): (vlog-7033) Variable 'y' driven in a combinational block, may not be driven by any other process. See fsm.sv(24).
+# ** Error (suppressible): fsm.sv(61): (vlog-7033) Variable 'nextstate' driven in a combinational block, may not be driven by any other process. See fsm.sv(25).
+# ** Error (suppressible): fsm.sv(62): (vlog-7033) Variable 'nextstate' driven in a combinational block, may not be driven by any other process. See fsm.sv(25).
+# ** Error (suppressible): fsm.sv(66): (vlog-7033) Variable 'y' driven in a combinational block, may not be driven by any other process. See fsm.sv(24).
+# ** Error (suppressible): fsm.sv(67): (vlog-7033) Variable 'nextstate' driven in a combinational block, may not be driven by any other process. See fsm.sv(25).
+# ** Error (suppressible): fsm.sv(68): (vlog-7033) Variable 'nextstate' driven in a combinational block, may not be driven by any other process. See fsm.sv(25).
+# ** Error (suppressible): fsm.sv(75): (vlog-7033) Variable 'y' driven in a combinational block, may not be driven by any other process. See fsm.sv(24).
+# ** Error (suppressible): fsm.sv(76): (vlog-7033) Variable 'nextstate' driven in a combinational block, may not be driven by any other process. See fsm.sv(25).
 # -- Compiling module stimulus
-# End time: 10:16:08 on Mar 25,2024, Elapsed time: 0:00:00
-# Errors: 6, Warnings: 0
+# End time: 11:27:43 on Mar 25,2024, Elapsed time: 0:00:00
+# Errors: 12, Warnings: 0
 # ** Error: C:/modeltech64_2021.3/win64/vlog failed.
 # Error in macro ./fsm.do line 30
 # C:/modeltech64_2021.3/win64/vlog failed.
