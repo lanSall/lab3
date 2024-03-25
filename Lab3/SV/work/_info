@@ -1,34 +1,178 @@
 m255
 K4
 z2
+Z0 !s99 nomlopt
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+!s11f vlog 2021.3 2021.07, Jul 13 2021
 13
 !s112 1.1
 !i10d 8192
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dC:/Users/cs212/Downloads/lab3/Lab3/SV
-vstimulus
-DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
-!s110 1711384063
+Z1 dC:/Users/cs212/Downloads/lab3/Lab3/SV
+T_opt
+!s110 1711387328
+VCOg^:z];RQZ`<9A^n6XzG2
+Z2 04 8 4 work stimulus fast 0
+=1-00d861e3bb02-6601b2bf-39a-41c0
+Z3 !s124 OEM100
+Z4 o-quiet -auto_acc_if_foreign -work work +acc
+Z5 tCvgOpt 0
+n@_opt
+Z6 OL;O;2021.3;73
+R1
+T_opt1
+!s110 1711387582
+VIVRlj_^YA4ZC4FRhD7]ii0
+R2
+=1-00d861e3bb02-6601b3bd-3e1-62fc
+R3
+R4
+R5
+n@_opt1
+R6
+R1
+T_opt2
+!s110 1711387767
+VhRW27EWQbR`W]HKai9jl<3
+R2
+=1-00d861e3bb02-6601b476-30a-2ff8
+R3
+R4
+R5
+n@_opt2
+R6
+R1
+T_opt3
+!s110 1711387820
+V25FI8ShVi?GLa0V;LNmHe2
+R2
+=1-00d861e3bb02-6601b4ab-e2-379c
+R3
+R4
+R5
+n@_opt3
+R6
+R1
+T_opt4
+!s110 1711387859
+VO>Ue2caeCUV5G?;M9U?o93
+R2
+=1-00d861e3bb02-6601b4d2-2c5-4e00
+R3
+R4
+R5
+n@_opt4
+R6
+R1
+T_opt5
+!s110 1711388038
+VliR>D2A:Ac3[Dii2T<L`=2
+R2
+=1-00d861e3bb02-6601b586-6d-45ac
+R3
+R4
+R5
+n@_opt5
+R6
+R1
+T_opt6
+!s110 1711388162
+V6_`hz;05I=l[SYO8B<;BI0
+R2
+=1-00d861e3bb02-6601b601-203-3928
+R3
+R4
+R5
+n@_opt6
+R6
+R1
+T_opt7
+!s110 1711389573
+Vn9Zm9V8P^j@Bahne^I_dd0
+R2
+=1-00d861e3bb02-6601bb84-2c7-4d70
+R3
+R4
+R5
+n@_opt7
+R6
+R1
+T_opt8
+!s110 1711389871
+VN_^7IL?nhC[bJ1MaAd6og2
+R2
+=1-00d861e3bb02-6601bcae-12c-bd4
+R3
+R4
+R5
+n@_opt8
+R6
+vFSM
+Z7 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+Z8 !s110 1711389869
 !i10b 1
-!s100 J>_:7V<71fE379Gi6Qm<73
-I[CO2^>A4=zQ5hS?]CJF3e0
+!s100 cCIdK6_a@3]FldlWf>DFY2
+IP];TQY^?@i7b<1:?YQGKf1
 S1
-R0
-w1710175394
-8fsm_tb.sv
-Ffsm_tb.sv
+R1
+w1711389856
+8fsm.sv
+Ffsm.sv
 !i122 0
-L0 2 46
-VDg1SIo80bB@j0V0VzS_@n1
-OL;L;2021.3;73
+L0 1 97
+Z9 VDg1SIo80bB@j0V0VzS_@n1
+Z10 OL;L;2021.3;73
 r1
 !s85 0
 31
-!s108 1711384063.000000
-!s107 fsm_tb.sv|fsm.sv|
-!s90 fsm.sv|fsm_tb.sv|
+Z11 !s108 1711389868.000000
+Z12 !s107 fsm_tb.sv|fsm.sv|
+Z13 !s90 fsm.sv|fsm_tb.sv|
 !i113 0
-o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-tCvgOpt 0
+Z14 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R5
+n@f@s@m
+vstimulus
+R7
+R8
+!i10b 1
+!s100 S<Q9X76FKO2C69GlAmA[H3
+Iml16Ea9zkgX::?I@adS_d2
+S1
+R1
+w1711389749
+8fsm_tb.sv
+Ffsm_tb.sv
+!i122 0
+L0 2 57
+R9
+R10
+r1
+!s85 0
+31
+R11
+R12
+R13
+!i113 0
+R14
+R5
