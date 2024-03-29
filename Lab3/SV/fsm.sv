@@ -24,8 +24,8 @@ module FSM (clk, reset, left ,right ,y);
 
         if(reset)             nextstate <= IDLE;
         else if(left&&right)  nextstate <= haz1;
-        else if (left)        nextstate <= left1;
-        else if (right)       nextstate <= right1;
+        else if (left&&!right)        nextstate <= left1;
+        else if (!left&&right)       nextstate <= right1;
         else                  nextstate <= IDLE;
       end
       //hazard state
@@ -53,8 +53,8 @@ module FSM (clk, reset, left ,right ,y);
 
         if(reset)             nextstate <= IDLE;
         else if(left&&right)  nextstate <= haz1;
-        else if(left)         nextstate <= left1;
-        else if(right)        nextstate <= right1;
+        else if(left&&!right)         nextstate <= left1;
+        else if(!left&&right)        nextstate <= right1;
         else                  nextstate <= haz1;
       end
 
@@ -84,7 +84,7 @@ module FSM (clk, reset, left ,right ,y);
         y = 6'b000000;
     
         if (reset)            nextstate <= IDLE;
-        else if (right)       nextstate <= right1;
+        else if (!left&&right)nextstate <= right1;
         else if (left&&right) nextstate <= haz1;
         else                  nextstate <= left1;
       end
@@ -115,7 +115,7 @@ module FSM (clk, reset, left ,right ,y);
         y = 6'b000000;
 
         if (reset)            nextstate <= IDLE;
-        else if (left)        nextstate <= left1;
+        else if (left&&!right)nextstate <= left1;
         else if (left&&right) nextstate <= haz1;
         else                  nextstate <= right1;
       end
