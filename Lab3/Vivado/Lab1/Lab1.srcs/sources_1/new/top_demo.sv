@@ -45,12 +45,13 @@ module top_demo
   logic        smol_clk;
   logic [5:0]  y;
   logic        clk_en;
-  
-  // Place TicTacToe instantiation here
-  FSM dut(clk_en,sw[0],sw[1],sw[2],y)
+  // Clock Divider:
+  clk_div div_child(sysclk_125mhz,sw[0],clk_en);
+  FSM dut(clk_en,sw[0],sw[2],sw[1],y);
 
-
-  always @(*) begin
+assign led [5:0] = y;
+/*
+  always_comb @(*) begin
     case(y)
     //all off
     6'b000000 : {led[5],led[4],led[3],led[2],led[1],led[0]} = {1'b0,1'b0,1'b0,1'b0,1'b0,1'b0};
@@ -68,15 +69,15 @@ module top_demo
     6'b111111 : {led[5],led[4],led[3],led[2],led[1],led[0]} = {1'b1,1'b1,1'b1,1'b1,1'b1,1'b1};
     endcase
   end
-
+*/
   // 7-segment display
   segment_driver driver(
   .clk(smol_clk),
   .rst(btn[3]),
-  .digit0(),
-  .digit1(),
-  .digit2(),
-  .digit3(),
+  .digit0(sseg1),
+  .digit1(sseg2),
+  .digit2(sseg3),
+  .digit3(sseg4),
   .decimals({1'b0, btn[2:0]}),
   .segment_cathodes({sseg_dp, sseg_cg, sseg_cf, sseg_ce, sseg_cd, sseg_cc, sseg_cb, sseg_ca}),
   .digit_anodes(sseg_an)
@@ -91,22 +92,6 @@ module top_demo
       CURRENT_COUNT = NEXT_COUNT;
   end
 
-  logic [23:0] clk_div;
-
-    // Reset the counter and clk_en signal on reset
-    always_ff @(posedge clk or posedge rst) begin
-        if (rst) begin
-            clk_div <= 24'b0;
-            clk_en <= 1'b0;
-        end else begin
-            // Increment the counter on each clock cycle
-            clk_div <= clk_div + 1;
-
-            // Set clk_en to 1 when MSB of clk_div is 1
-            clk_en <= clk_div[23];
-        end
-    end
-  
   // Increment logic
   assign NEXT_COUNT = CURRENT_COUNT == 17'd100000 ? 17'h00000 : CURRENT_COUNT + 1;
 
