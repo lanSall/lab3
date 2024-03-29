@@ -1,41 +1,129 @@
-module FSM (clk, reset, a, y);
+module FSM (clk, reset, left ,right ,y);
 
    input logic  clk;
    input logic  reset;
-   input logic 	a;
-   
-   output logic y;
+   input logic left;
+   input logic right;
 
-   typedef enum 	logic [1:0] {S0, S1, S2} statetype;
+   output logic [5:0] y;
+
+   typedef enum 	logic [3:0] {haz1,haz2,haz3,haz4,left1, left2, left3, left4, right1, right2, right3, right4, IDLE} statetype;
    statetype state, nextstate;
    
    // state register
    always_ff @(posedge clk, posedge reset)
-     if (reset) state <= S0;
+     if (reset) state <= IDLE;
      else       state <= nextstate;
    
-   // next state logic
-   always_comb
-     case (state)
-       S0: begin
-	  y <= 1'b0;	  
-	  if (a) nextstate <= S0;
-	  else   nextstate <= S1;
-       end
-       S1: begin
-	  y <= 1'b0;	  	  
-	  if (a) nextstate <= S2;
-	  else   nextstate <= S1;
-       end
-       S2: begin
-	  y <= 1'b1;	  	  
-	  if (a) nextstate <= S2;
-	  else   nextstate <= S0;
-       end
-       default: begin
-	  y <= 1'b0;	  	  
-	  nextstate <= S0;
-       end
-     endcase
-   
+    always_comb
+      case (state)
+
+      //default state
+      IDLE: begin
+        y = 6'b000000;
+
+        if(reset)             nextstate <= IDLE;
+        else if(left&&right)  nextstate <= haz1;
+        else if (left)        nextstate <= left1;
+        else if (right)       nextstate <= right1;
+        else                  nextstate <= IDLE;
+      end
+      //hazard state
+      haz1: begin
+        y = 6'b001100;
+
+        if(reset)             nextstate <= IDLE;
+        else                  nextstate <= haz2;
+      end
+      haz2: begin
+        y = 6'b011110;
+
+        if(reset)             nextstate <= IDLE;
+        else                  nextstate <= haz3;
+      end
+      haz3: begin
+        y = 6'b111111;
+
+        if(reset)             nextstate <= IDLE;
+        else                  nextstate <= haz4;
+      end
+
+      haz4: begin
+      y = 6'b000000;
+
+        if(reset)             nextstate <= IDLE;
+        else if(left&&right)  nextstate <= haz1;
+        else if(left)         nextstate <= left1;
+        else if(right)        nextstate <= right1;
+        else                  nextstate <= haz1;
+      end
+
+      //left state
+      left1: begin
+        y = 6'b001000;
+      
+        if (reset)            nextstate <= IDLE;
+        else                  nextstate <= left2;
+      end
+
+      left2: begin
+        y = 6'b011000;
+      
+        if (reset)            nextstate <= IDLE;
+        else                  nextstate <= left3;
+      end
+
+      left3: begin
+        y = 6'b111000;
+      
+        if (reset)            nextstate <= IDLE;
+        else                  nextstate <= left4;
+      end
+
+      left4: begin
+        y = 6'b000000;
+    
+        if (reset)            nextstate <= IDLE;
+        else if (right)       nextstate <= right1;
+        else if (left&&right) nextstate <= haz1;
+        else                  nextstate <= left1;
+      end
+
+      //right state
+      right1: begin
+        y = 6'b000100;
+      
+        if (reset)            nextstate <= IDLE;
+        else                  nextstate <= right2;
+      end
+
+      right2: begin
+        y = 6'b000110;
+      
+        if (reset)            nextstate <= IDLE;
+        else                  nextstate <= right3;
+      end
+
+      right3: begin
+        y = 6'b000111;
+      
+        if (reset)            nextstate <= IDLE;
+        else                  nextstate <= right4;
+      end
+
+      right4: begin
+        y = 6'b000000;
+
+        if (reset)            nextstate <= IDLE;
+        else if (left)        nextstate <= left1;
+        else if (left&&right) nextstate <= haz1;
+        else                  nextstate <= right1;
+      end
+
+      default: begin
+        nextstate <= IDLE;
+      end 
+
+      endcase
+
 endmodule
